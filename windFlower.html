@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>windFlower</title>
+	<style type='text/css'>
+		*{margin: 0;padding: 0;}
+		html,body{
+			height: 100%;
+		}
+		body{
+			background-color: #ccc;
+			overflow: hidden;
+		}
+		.container{
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			top: 50%;
+			left: 50%;
+			margin-top: -150px;
+			margin-left: -150px;
+			animation: rotate 12s linear infinite;
+		}
+		.per-circle{
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			margin-top: -150px;
+			border-radius: 50%;
+			background-color: rgba(288,57,159,.75);
+			box-shadow: 0 20px 66px rgba(0,0,0,.5);
+			transform-origin: center 300px;
+		}
+		@keyframes rotate{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+		<div class="per-circle"></div>
+	</div>
+	<script>
+		var perCircle = document.querySelectorAll('.per-circle');
+		var length = perCircle.length;
+		var colors = ['(16,63,236,.75)','(37,137,162,.75)','(233,124,32,.75)','(208,57,157,.75)','(95,33,203,.75)','(158,32,198,.75)','(235,67,38,.75)','(37,172,200,.75)']
+		for(var i = 0; i < length; i++){
+			perCircle[i].style.transform='rotateZ('+i*45+'deg)';
+			perCircle[i].style.background = 'rgba'+colors[i];
+		}
+	</script>
+</body>
+</html>
